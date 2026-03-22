@@ -212,6 +212,11 @@ Adding this Line of code in the `/etc/default/solr.in.sh` file patches the vulne
 
 `SOLR_OPTS="$SOLR_OPTS -Dlog4j2.formatMsgNoLookups=true"`
 
+And successfully completed the room
+
+<img width="1335" height="631" alt="image" src="https://github.com/user-attachments/assets/c61743a7-cd12-4c39-b441-ad7d3a139dc4" />
+
+
 Testing that again we get no revshell after executing the attack
 
 
