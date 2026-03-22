@@ -1,4 +1,4 @@
-<img width="663" height="165" alt="image" src="https://github.com/user-attachments/assets/dc5c5335-7f8c-4a9a-a8a8-d02c91fbf9ef" /># Log4Shell THM Writeups
+# Log4Shell THM Writeups
 
 ## Reconnaissance
 
@@ -181,6 +181,7 @@ Command:
 
 Successfully completed persistence
 
+<img width="663" height="165" alt="image" src="https://github.com/user-attachments/assets/dc5c5335-7f8c-4a9a-a8a8-d02c91fbf9ef" />
 
 ## Detection
 
