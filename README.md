@@ -212,6 +212,6 @@ Adding this Line of code in the `/etc/default/solr.in.sh` file patches the vulne
 
 `SOLR_OPTS="$SOLR_OPTS -Dlog4j2.formatMsgNoLookups=true"`
 
-
+Testing that again we get no revshell after executing the attack
 
 
