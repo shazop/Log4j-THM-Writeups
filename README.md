@@ -192,7 +192,7 @@ We can see that our attack log has been stored
 <img width="961" height="460" alt="image" src="https://github.com/user-attachments/assets/9b53d0dd-96ea-468f-9c69-4d00189d9915" />
 
 
-#Bypasses
+## Bypasses
 
 Bypass techniques to bypass the firewall/filters
 
