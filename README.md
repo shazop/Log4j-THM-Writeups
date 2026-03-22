@@ -67,6 +67,10 @@ Command:
 
 Then connected usering curl in the `/solr/admin/cores?foo=` endpoint with my local ip with ldap lookup.
 
+
+
+
+
 <img width="814" height="209" alt="image" src="https://github.com/user-attachments/assets/b0fa8239-ca6e-401b-85e8-769fa3523ad0" />
 
 Command:
@@ -75,5 +79,15 @@ Command:
 
 And I got the revshell
 
+
 <img width="490" height="128" alt="image" src="https://github.com/user-attachments/assets/ed9a26e7-20b0-4b54-9d73-ab3097369db8" />
+
+
+
+## Exploitation
+
+
+
+
+
 
